@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>飛行機搭乗シミュレータ</title>
+  <meta name="description" content="様々な搭乗戦略の効率を比較するシミュレータ">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <h1>Airplane Boarding Simulator</h1>
+      <p>様々な搭乗戦略の効率を比較します</p>
+    </header>
+
+    <main class="main-content">
+      <div class="controls-panel card glass">
+        <h2>コントロール</h2>
+        
+        <div class="control-group">
+          <label for="strategy">搭乗戦略</label>
+          <select id="strategy">
+            <option value="random">ランダム (Random)</option>
+            <option value="backToFront">後方から前方 (Back-to-Front)</option>
+            <option value="wilma">窓・中央・通路順 (Wilma)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="speed">シミュレーション速度</label>
+          <input type="range" id="speed" min="1" max="10" value="5">
+        </div>
+
+        <div class="actions">
+          <button id="startBtn" class="btn btn-primary">開始</button>
+          <button id="pauseBtn" class="btn btn-secondary" disabled>一時停止</button>
+          <button id="resetBtn" class="btn btn-danger">リセット</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-label">時間 (Tick):</span>
+            <span id="timeStat" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">着席完了:</span>
+            <span id="seatedStat" class="stat-value">0 / 180</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="simulation-area card">
+        <div id="airplane" class="airplane">
+          <!-- 生成される座席と通路 -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

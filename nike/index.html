@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界の株価と為替 リアルタイムダッシュボード</title>
+    <meta name="description" content="世界の主要株価指数、為替、商品先物、仮想通貨のリアルタイムチャートダッシュボードです。">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-container">
+            <h1>世界の株価 <span class="badge">LIVE</span></h1>
+            <nav>
+                <a href="#indices" class="active">主要株価指数</a>
+                <a href="#forex">為替</a>
+                <a href="#commodities">商品・仮想通貨</a>
+            </nav>
+            <div class="time-display" id="local-time">--:--:--</div>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- Indices Section -->
+        <section id="indices" class="market-section">
+            <h2><span class="icon">📈</span> 主要株価指数</h2>
+            <div class="ticker-grid" id="grid-indices">
+                <!-- Cards injected by JS -->
+            </div>
+        </section>
+
+        <!-- Forex Section -->
+        <section id="forex" class="market-section">
+            <h2><span class="icon">💱</span> 為替 (FX)</h2>
+            <div class="ticker-grid" id="grid-forex">
+                <!-- Cards injected by JS -->
+            </div>
+        </section>
+
+        <!-- Commodities & Crypto Section -->
+        <section id="commodities" class="market-section">
+            <h2><span class="icon">🪙</span> 商品・仮想通貨</h2>
+            <div class="ticker-grid" id="grid-commodities">
+                <!-- Cards injected by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Template for Ticker Card -->
+    <template id="ticker-card-template">
+        <div class="ticker-card">
+            <div class="ticker-header">
+                <span class="ticker-name">Name</span>
+                <span class="ticker-status-icon"></span>
+            </div>
+            <div class="ticker-body">
+                <div class="price-info">
+                    <div class="ticker-price">0.00</div>
+                    <div class="ticker-change">
+                        <span class="change-abs">---</span>
+                        <span class="change-pct">(---%)</span>
+                    </div>
+                </div>
+                <div class="ticker-chart">
+                    <!-- SVG sparkline inserted here -->
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPX 投資主体別売買動向 ダッシュボード</title>
+    <meta name="description" content="日本取引所グループ（JPX）が公表する投資部門別売買状況を分かりやすく可視化するダッシュボード。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-gradients">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="topbar glass-panel">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="chart-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                <h1>JPX Market Trends</h1>
+            </div>
+            <div class="date-selector">
+                <select id="week-selector" class="glass-select">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="summary-cards">
+                <div class="card glass-panel fade-in" style="animation-delay: 0.1s;">
+                    <h3>海外投資家 (Foreign)</h3>
+                    <div class="metric" id="metric-foreign">
+                        <span class="value">--</span>
+                        <span class="unit">億円</span>
+                    </div>
+                    <div class="trend" id="trend-foreign">--</div>
+                </div>
+                <div class="card glass-panel fade-in" style="animation-delay: 0.2s;">
+                    <h3>個人 (Individuals)</h3>
+                    <div class="metric" id="metric-individual">
+                        <span class="value">--</span>
+                        <span class="unit">億円</span>
+                    </div>
+                    <div class="trend" id="trend-individual">--</div>
+                </div>
+                <div class="card glass-panel fade-in" style="animation-delay: 0.3s;">
+                    <h3>事業法人 (Corporations)</h3>
+                    <div class="metric" id="metric-corp">
+                        <span class="value">--</span>
+                        <span class="unit">億円</span>
+                    </div>
+                    <div class="trend" id="trend-corp">--</div>
+                </div>
+                <div class="card glass-panel fade-in" style="animation-delay: 0.4s;">
+                    <h3>証券会社 (Securities)</h3>
+                    <div class="metric" id="metric-sec">
+                        <span class="value">--</span>
+                        <span class="unit">億円</span>
+                    </div>
+                    <div class="trend" id="trend-sec">--</div>
+                </div>
+            </section>
+
+            <section class="charts-section fade-in" style="animation-delay: 0.5s;">
+                <div class="chart-container glass-panel">
+                    <header class="chart-header">
+                        <h2>部門別 買越・売越額 (Net Trading by Sector)</h2>
+                        <span class="subtitle">単位: 億円</span>
+                    </header>
+                    <div class="canvas-wrapper">
+                        <canvas id="netTradingChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="table-section fade-in" style="animation-delay: 0.6s;">
+                <div class="table-container glass-panel">
+                    <header class="table-header">
+                        <h2>詳細データ (Detailed Breakdown)</h2>
+                    </header>
+                    <div class="table-wrapper">
+                        <table id="data-table">
+                            <thead>
+                                <tr>
+                                    <th>投資部門</th>
+                                    <th>売付 (Sales)</th>
+                                    <th>買付 (Purchases)</th>
+                                    <th>差引 (Net)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

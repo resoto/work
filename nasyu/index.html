@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nash Equilibrium Calculator</title>
+    <meta name="description" content="Calculate and visualize Nash Equilibriums for 2x2 games ">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    <main class="glass-container">
+        <header>
+            <h1>Nash Equilibrium</h1>
+            <p>2x2 Game Matrix Calculator</p>
+        </header>
+
+        <section class="game-presets">
+            <button class="preset-btn" data-preset="prisoners">Prisoner's Dilemma</button>
+            <button class="preset-btn" data-preset="chicken">Game of Chicken</button>
+            <button class="preset-btn" data-preset="stag">Stag Hunt</button>
+            <button class="preset-btn" data-preset="clear">Clear</button>
+        </section>
+
+        <section class="matrix-container">
+            <div class="matrix-grid">
+                <!-- Headers -->
+                <div class="cell header empty"></div>
+                <div class="cell header player2-col">P2: Strategy L</div>
+                <div class="cell header player2-col">P2: Strategy R</div>
+
+                <!-- Row 1 -->
+                <div class="cell header player1-row">P1: Strategy U</div>
+                <div class="cell data-cell" id="cell-0-0">
+                    <input type="number" class="p1-input" id="p1-0-0" value="0">
+                    <span class="comma">,</span>
+                    <input type="number" class="p2-input" id="p2-0-0" value="0">
+                </div>
+                <div class="cell data-cell" id="cell-0-1">
+                    <input type="number" class="p1-input" id="p1-0-1" value="0">
+                    <span class="comma">,</span>
+                    <input type="number" class="p2-input" id="p2-0-1" value="0">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="cell header player1-row">P1: Strategy D</div>
+                <div class="cell data-cell" id="cell-1-0">
+                    <input type="number" class="p1-input" id="p1-1-0" value="0">
+                    <span class="comma">,</span>
+                    <input type="number" class="p2-input" id="p2-1-0" value="0">
+                </div>
+                <div class="cell data-cell" id="cell-1-1">
+                    <input type="number" class="p1-input" id="p1-1-1" value="0">
+                    <span class="comma">,</span>
+                    <input type="number" class="p2-input" id="p2-1-1" value="0">
+                </div>
+            </div>
+        </section>
+
+        <section class="result-container">
+            <button id="calculate-btn" class="primary-btn">Calculate Nash Equilibrium</button>
+            <div id="results" class="results-area hidden">
+                <h3>Equilibrium Results</h3>
+                <ul id="nash-list"></ul>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

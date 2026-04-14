@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分量スケーラー</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-container">
+        <header class="app-header">
+            <div class="icon-container">
+                <i data-lucide="chef-hat"></i>
+            </div>
+            <h1>分量スケーラー</h1>
+            <p>レシピの分量を簡単に計算しましょう</p>
+        </header>
+
+        <section class="servings-card glass-panel">
+            <div class="serving-input">
+                <label for="original-servings">基準の分量 (人分)</label>
+                <div class="input-with-icon">
+                    <i data-lucide="users"></i>
+                    <input type="number" id="original-servings" value="2" min="1" step="1">
+                </div>
+            </div>
+            <div class="divider">
+                <i data-lucide="arrow-right"></i>
+            </div>
+            <div class="serving-input target-input">
+                <label for="target-servings">作りたい分量 (人分)</label>
+                <div class="input-with-icon highlight-icon">
+                    <i data-lucide="utensils"></i>
+                    <input type="number" id="target-servings" value="4" min="1" step="1">
+                </div>
+            </div>
+        </section>
+
+        <section class="ingredients-section glass-panel">
+            <div class="section-header">
+                <h2>材料リスト</h2>
+                <span class="scale-badge" id="scale-badge">2.0倍</span>
+            </div>
+
+            <div class="list-header">
+                <div class="col-name">材料名</div>
+                <div class="col-amount">元の量</div>
+                <div class="col-unit">単位</div>
+                <div class="col-result">計算後</div>
+                <div class="col-action"></div>
+            </div>
+
+            <div id="ingredients-container">
+                <!-- Ingredients will be injected here by JS -->
+            </div>
+
+            <button id="add-ingredient-btn" class="btn btn-secondary">
+                <i data-lucide="plus"></i> 材料を追加
+            </button>
+        </section>
+
+        <section class="actions-section">
+            <button id="copy-btn" class="btn btn-primary">
+                <i data-lucide="copy"></i> 結果をコピー
+            </button>
+        </section>
+    </main>
+
+    <div id="toast" class="toast">コピーしました！</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
